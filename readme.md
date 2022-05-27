@@ -20,7 +20,7 @@ Instructions for the DRM/KMS version:
 
 - The command to do this on a debian-based system will look something like this:
 
-`sudo apt-get install cmake libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg8-dev libfreetype6-dev libudev-dev libdrm-dev libgbm-dev libegl1-mesa-dev`
+`sudo apt-get install cmake libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg9-dev libfreetype6-dev libudev-dev libdrm-dev libgbm-dev libegl1-mesa-dev`
 
 **Step 2:** Build the "DRM" version of SFML-Pi
 
