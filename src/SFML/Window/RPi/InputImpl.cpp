@@ -428,8 +428,17 @@ namespace
                 }
                 else if ( ie.type == EV_ABS )
                 {
+                    bool posChange = false;
                     switch ( ie.code )
                     {
+                    case ABS_X:
+                        mousePos.x = ie.value;
+                        posChange = true;
+                        break;
+                    case ABS_Y:
+                        mousePos.y = ie.value;
+                        posChange = true;
+                        break;
                     case ABS_MT_SLOT:
                         currentSlot = ie.value;
                         touchFd = *itr;
@@ -446,6 +455,13 @@ namespace
                         atSlot(currentSlot).pos.y = ie.value;
                         touchFd = *itr;
                         break;
+                    }
+                    if( posChange )
+                    {
+                        ev.type = sf::Event::MouseMoved;
+                        ev.mouseMove.x = mousePos.x;
+                        ev.mouseMove.y = mousePos.y;
+                        return true;
                     }
                 }
                 else if ( ie.type == EV_SYN && ie.code == SYN_REPORT &&
